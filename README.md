@@ -1,8 +1,6 @@
 # API Unofficial DANA - Transfer & Mutasi
 
-## ⚠️ Peringatan Penting
-
-### Yang Perlu Disiapkan:
+### Persiapan:
 
 | Komponen | Cara Mendapatkan |
 |----------|------------------|
@@ -12,8 +10,12 @@
 | **API Endpoints** | Capture semua endpoint dari network traffic |
 
 ---
-*Catatan: Session ID ini akan expired setelah beberapa waktu atau setelah logout*
+
+  *Catatan: Session ID ini akan expired setelah beberapa waktu atau setelah logout*
+  
 ---
+
+## ⚠️ Peringatan
 
 **Script TIDAK AKAN BERJALAN** tanpa melakukan reverse engineering terlebih dahulu untuk mendapatkan:
 1. Endpoint API yang benar
@@ -67,7 +69,7 @@ curl -X POST https://api.dana.id/v1/auth/login \
 ```
 ---
 
-## 🚨 Catatan Penting
+## 🚨 Catatan
 
 1. **Endpoint DANA dapat berubah** - Kode di atas menggunakan endpoint berdasarkan observasi umum (seperti `/mapi/my/transaction/list`). Endpoint sebenarnya mungkin berbeda dan perlu ditemukan melalui reverse engineering aplikasi web DANA.
 2. **Keamanan** - Jangan pernah menyimpan session ID di kode yang commit ke repository. Gunakan environment variables.
