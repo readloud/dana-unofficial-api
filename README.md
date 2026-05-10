@@ -103,4 +103,4 @@ Untuk implementasi production dengan transfer dana, sangat disarankan untuk meng
 
 1. [**dana-php**](https://github.com/dana-id/dana-php.git)
 2. [**dana-node**](https://github.com/dana-id/dana-node.git)
-3. [**duat-script**]( https://github.com/dana-id/uat-script.git)
+3. [**dana-uat-script**]( https://github.com/dana-id/uat-script.git)
