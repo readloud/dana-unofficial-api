@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DANA Mock API Server</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1 { color: #0066cc; }
+        .endpoint { background: #f4f4f4; padding: 10px; margin: 10px 0; border-radius: 5px; }
+        code { background: #e0e0e0; padding: 2px 5px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>🚀 DANA Mock API Server</h1>
+    <p>Mock server is running successfully!</p>
+    
+    <h2>Available Endpoints:</h2>
+    <div class="endpoint">
+        <strong>POST</strong> <code>/auth/login</code> - Login/request OTP
+    </div>
+    <div class="endpoint">
+        <strong>GET</strong> <code>/balance</code> - Get wallet balance
+    </div>
+    <div class="endpoint">
+        <strong>POST</strong> <code>/transfer</code> - Create transfer
+    </div>
+    <div class="endpoint">
+        <strong>GET</strong> <code>/transfer/{transfer_id}</code> - Get transfer status
+    </div>
+    <div class="endpoint">
+        <strong>GET</strong> <code>/mutations</code> - Get transaction history
+    </div>
+    
+    <p>📝 <strong>Note:</strong> This is a mock API server. All endpoints require Bearer token authentication.</p>
+</body>
+</html>

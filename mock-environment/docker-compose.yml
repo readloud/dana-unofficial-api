@@ -1,0 +1,17 @@
+services:
+  mock:
+    build: ./docker/mock
+    env_file: ./.env
+    ports: 
+      - "3000:3000"
+    volumes: 
+      - ./docker/mock:/app
+      - /app/node_modules  # Prevents node_modules from being overridden
+  webhook:
+    build: ./docker/webhook
+    env_file: ./.env
+    ports: 
+      - "4000:4000"
+    volumes: 
+      - ./docker/webhook:/app
+      - /app/node_modules  # Prevents node_modules from being overridden

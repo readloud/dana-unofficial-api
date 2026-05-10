@@ -1,0 +1,291 @@
+openapi: 3.0.3
+info:
+  title: Unofficial DANA API (mock - sqlite)
+  version: "1.0.0"
+servers:
+  - url: http://localhost:3000
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    LoginRequest:
+      type: object
+      properties:
+        phone:
+          type: string
+        otp:
+          type: string
+      required:
+        - phone
+    TokenResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        access_token:
+          type: string
+        expires_in:
+          type: integer
+    Balance:
+      type: object
+      properties:
+        success:
+          type: boolean
+        balance:
+          type: integer
+        currency:
+          type: string
+        available:
+          type: integer
+        hold:
+          type: integer
+    TransferRequest:
+      type: object
+      properties:
+        to:
+          type: string
+        amount:
+          type: integer
+        note:
+          type: string
+        idempotency_key:
+          type: string
+      required:
+        - to
+        - amount
+        - idempotency_key
+    TransferRow:
+      type: object
+      properties:
+        id:
+          type: integer
+        transfer_id:
+          type: string
+        idempotency_key:
+          type: string
+        from_phone:
+          type: string
+        to_phone:
+          type: string
+        amount:
+          type: integer
+        fee:
+          type: integer
+        status:
+          type: string
+        meta:
+          type: string
+          description: JSON string (use JSON.parse on the client)
+        created_at:
+          type: string
+          format: date-time
+    TransferResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        transfer_id:
+          type: string
+        status:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        fee:
+          type: integer
+    TransferGetResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        transfer_id:
+          type: string
+        status:
+          type: string
+        amount:
+          type: integer
+        to:
+          type: string
+        fee:
+          type: integer
+        meta:
+          type: string
+          description: JSON string
+        timestamp:
+          type: string
+          format: date-time
+    MutationItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        tx_id:
+          type: string
+        date:
+          type: string
+          format: date-time
+        type:
+          type: string
+        amount:
+          type: integer
+        balance:
+          type: integer
+        description:
+          type: string
+        counterparty:
+          type: string
+        raw:
+          type: string
+          description: JSON string
+    MutationsListResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/MutationItem'
+        pagination:
+          type: object
+          properties:
+            page:
+              type: integer
+            limit:
+              type: integer
+            total:
+              type: integer
+security:
+  - BearerAuth: []
+paths:
+  /auth/login:
+    post:
+      summary: Request OTP or verify and login (mock returns otp when requesting)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: token or otp sent
+          content:
+            application/json:
+              schema:
+                anyOf:
+                  - $ref: '#/components/schemas/TokenResponse'
+                  - type: object
+                    properties:
+                      success:
+                        type: boolean
+                      message:
+                        type: string
+                      otp:
+                        type: string
+  /balance:
+    get:
+      summary: Get wallet balance
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Balance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Balance'
+  /transfer:
+    post:
+      summary: Create transfer (idempotent by idempotency_key)
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferRequest'
+      responses:
+        '200':
+          description: transfer created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferResponse'
+        '402':
+          description: insufficient funds
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  error:
+                    type: object
+  /transfer/{transfer_id}:
+    get:
+      summary: Get transfer status
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: transfer_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: transfer status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferGetResponse'
+        '404':
+          description: not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  error:
+                    type: object
+  /mutations:
+    get:
+      summary: Get transaction mutations
+      security:
+        - BearerAuth: []
+      parameters:
+        - name: start_date
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 50
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: list of transactions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MutationsListResponse'

@@ -1,0 +1,21 @@
+{"level":"info","message":"DANA Unofficial API running on port 3000","timestamp":"2026-05-09T12:19:27.375Z"}
+{"level":"info","message":"DANA Unofficial API running on port 3000","timestamp":"2026-05-09T12:22:34.357Z"}
+[2026-05-10T18:01:32.564770+00:00] dana-api.INFO: Fetching CSRF token... [] []
+[2026-05-10T18:02:02.653219+00:00] dana-api.ERROR: Failed to get CSRF token: cURL error 28: Operation timed out after 30001 milliseconds with 0 bytes received (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://www.dana.id [] []
+[2026-05-10T18:02:02.653518+00:00] dana-api.WARNING: Attempt 1 failed for transfer_funds: cURL error 28: Operation timed out after 30001 milliseconds with 0 bytes received (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://www.dana.id [] []
+[2026-05-10T18:02:07.653882+00:00] dana-api.INFO: Fetching CSRF token... [] []
+[2026-05-10T18:02:37.658738+00:00] dana-api.ERROR: Failed to get CSRF token: cURL error 28: Operation timed out after 30001 milliseconds with 0 bytes received (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://www.dana.id [] []
+[2026-05-10T18:02:37.659587+00:00] dana-api.WARNING: Attempt 2 failed for transfer_funds: cURL error 28: Operation timed out after 30001 milliseconds with 0 bytes received (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://www.dana.id [] []
+[2026-05-10T18:02:42.660170+00:00] dana-api.INFO: Fetching CSRF token... [] []
+[2026-05-10T18:03:12.673422+00:00] dana-api.ERROR: Failed to get CSRF token: cURL error 28: Operation timed out after 30005 milliseconds with 0 bytes received (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://www.dana.id [] []
+[2026-05-10T18:03:12.673752+00:00] dana-api.WARNING: Attempt 3 failed for transfer_funds: cURL error 28: Operation timed out after 30005 milliseconds with 0 bytes received (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://www.dana.id [] []
+[2026-05-10T18:03:12.778305+00:00] dana-api.INFO: Fetching CSRF token... [] []
+[2026-05-10T18:03:42.840876+00:00] dana-api.ERROR: Failed to get CSRF token: cURL error 28: Operation timed out after 30001 milliseconds with 0 bytes received (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://www.dana.id [] []
+[2026-05-10T18:03:42.841594+00:00] dana-api.WARNING: Attempt 1 failed for fetch_mutation: cURL error 28: Operation timed out after 30001 milliseconds with 0 bytes received (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://www.dana.id [] []
+[2026-05-10T18:03:47.842246+00:00] dana-api.INFO: Fetching CSRF token... [] []
+[2026-05-10T18:04:17.847071+00:00] dana-api.ERROR: Failed to get CSRF token: cURL error 28: Operation timed out after 30000 milliseconds with 0 bytes received (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://www.dana.id [] []
+[2026-05-10T18:04:17.847586+00:00] dana-api.WARNING: Attempt 2 failed for fetch_mutation: cURL error 28: Operation timed out after 30000 milliseconds with 0 bytes received (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://www.dana.id [] []
+[2026-05-10T18:04:22.848114+00:00] dana-api.INFO: Fetching CSRF token... [] []
+[2026-05-10T18:04:52.854897+00:00] dana-api.ERROR: Failed to get CSRF token: cURL error 28: Operation timed out after 30002 milliseconds with 0 bytes received (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://www.dana.id [] []
+[2026-05-10T18:04:52.855636+00:00] dana-api.WARNING: Attempt 3 failed for fetch_mutation: cURL error 28: Operation timed out after 30002 milliseconds with 0 bytes received (see https://curl.haxx.se/libcurl/c/libcurl-errors.html) for https://www.dana.id [] []
+{"level":"info","message":"DANA Unofficial API running on port 3000","timestamp":"2026-05-10T20:27:16.140Z"}

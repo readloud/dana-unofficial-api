@@ -1,0 +1,15 @@
+{
+    "name": "dana/unofficial-api",
+    "description": "Unofficial DANA API Wrapper",
+    "require": {
+        "php": ">=7.4",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-openssl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dana\\": "src/"
+        }
+    }
+}

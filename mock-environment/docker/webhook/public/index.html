@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DANA Webhook Receiver</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1 { color: #28a745; }
+        .status { background: #d4edda; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        code { background: #f4f4f4; padding: 2px 5px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>🔗 DANA Webhook Receiver</h1>
+    <div class="status">
+        ✅ Webhook server is running successfully!
+    </div>
+    
+    <h2>Webhook Endpoints:</h2>
+    <p><strong>POST</strong> <code>/webhook</code> - Receive webhook notifications</p>
+    <p><strong>GET</strong> <code>/health</code> - Health check endpoint</p>
+    
+    <h2>Worker Status:</h2>
+    <p>⚙️ Background worker is processing webhook events</p>
+    
+    <p>📝 <strong>Note:</strong> This service receives and processes webhook callbacks from the mock API server.</p>
+</body>
+</html>

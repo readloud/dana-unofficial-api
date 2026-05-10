@@ -1,0 +1,20 @@
+{
+  "name": "wraper",
+  "version": "1.0.0",
+  "main": "dana-unofficial.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "axios": "^1.16.0",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^17.4.2"
+  }
+}
